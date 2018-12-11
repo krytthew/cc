@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="myForm" (ngSubmit)="saveData()" [hidden]="login">
+    <ion-list>
+      <ion-item>
+        <ion-icon ios="ios-contact" md="md-contact" item-start></ion-icon>
+        <ion-label stacked>Nombres:</ion-label>
+        <ion-input formControlName="name" type="text" clearInput="true" placeholder="Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-icon ios="ios-finger-print" md="md-finger-print" item-start></ion-icon>
+        <ion-label stacked>Contraseña:</ion-label>
+        <ion-input formControlName="password" type="password" placeholder="Contraseña"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button block type="submit" [disabled]="!myForm.valid">Guardar</button>
+    </div>
+  </form>
+  <div [hidden]="!login">
+    <ion-label style="font-size:20px;" stacked>{{variable}}</ion-label>
+    <div padding>
+      <button ion-button block type="button" (click)="regresar()">Regresar</button>
+    </div>
+  </div> 
+</ion-content>
